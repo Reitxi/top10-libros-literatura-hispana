@@ -21,6 +21,40 @@
     --border: #3a322a;
     --shadow: rgba(0, 0, 0, 0.4);
   }
+
+  .country-card .name,
+  .detail-heading h2 {
+    color: #f5ecdc;
+  }
+}
+
+/* Manual override via the theme toggle button; takes precedence over the
+   prefers-color-scheme media query above because of higher selector specificity. */
+:root[data-theme="light"] {
+  --bg: #faf6f0;
+  --bg-alt: #ffffff;
+  --text: #2a2320;
+  --text-muted: #6b5f56;
+  --accent: #9a3324;
+  --accent-2: #c08a2e;
+  --border: #e3d9cc;
+  --shadow: rgba(42, 35, 32, 0.12);
+}
+
+:root[data-theme="dark"] {
+  --bg: #1c1815;
+  --bg-alt: #262019;
+  --text: #f1e9df;
+  --text-muted: #b8ab9c;
+  --accent: #e0693f;
+  --accent-2: #d9a441;
+  --border: #3a322a;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme="dark"] .country-card .name,
+:root[data-theme="dark"] .detail-heading h2 {
+  color: #f5ecdc;
 }
 
 * {
@@ -36,9 +70,36 @@ body {
 }
 
 header.site-header {
+  position: relative;
   padding: 3rem 1.5rem 2rem;
   text-align: center;
   border-bottom: 1px solid var(--border);
+}
+
+.theme-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.15s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  box-shadow: 0 4px 10px var(--shadow);
 }
 
 header.site-header h1 {

@@ -69,8 +69,27 @@ function showCountry(name) {
   detail.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function updateThemeToggleIcon(theme) {
+  const btn = document.getElementById("theme-toggle");
+  btn.textContent = theme === "dark" ? "☀️" : "🌙";
+}
+
+function initThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  updateThemeToggleIcon(document.documentElement.getAttribute("data-theme"));
+
+  btn.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+    updateThemeToggleIcon(next);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderGrid();
+  initThemeToggle();
   document.getElementById("search").addEventListener("input", (e) => {
     renderGrid(e.target.value);
   });
