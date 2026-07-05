@@ -255,19 +255,21 @@ main {
   stroke: var(--map-land-stroke);
 }
 
-.map-highlight {
+#world-map .landxx.map-highlight {
   fill: var(--lilac);
+  stroke: var(--bg-alt);
+  stroke-width: 0.7;
   cursor: pointer;
   transition: fill 0.15s ease;
 }
 
-.map-highlight:hover,
-.map-highlight:focus-visible {
+#world-map .landxx.map-highlight:hover,
+#world-map .landxx.map-highlight:focus-visible {
   fill: var(--lilac-hover);
   outline: none;
 }
 
-.map-highlight.map-active {
+#world-map .landxx.map-highlight.map-active {
   fill: var(--accent);
 }
 
