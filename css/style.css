@@ -8,6 +8,10 @@
   --accent-2: #c08a2e;
   --border: #e3d9cc;
   --shadow: rgba(42, 35, 32, 0.12);
+  --lilac: #9b6fd1;
+  --lilac-hover: #7c4fc0;
+  --map-land: #ded3c2;
+  --map-land-stroke: #faf6f0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,6 +24,10 @@
     --accent-2: #d9a441;
     --border: #3a322a;
     --shadow: rgba(0, 0, 0, 0.4);
+    --lilac: #b48be0;
+    --lilac-hover: #cba6ef;
+    --map-land: #3a322a;
+    --map-land-stroke: #1c1815;
   }
 
   .country-card .name,
@@ -39,6 +47,10 @@
   --accent-2: #c08a2e;
   --border: #e3d9cc;
   --shadow: rgba(42, 35, 32, 0.12);
+  --lilac: #9b6fd1;
+  --lilac-hover: #7c4fc0;
+  --map-land: #ded3c2;
+  --map-land-stroke: #faf6f0;
 }
 
 :root[data-theme="dark"] {
@@ -50,6 +62,10 @@
   --accent-2: #d9a441;
   --border: #3a322a;
   --shadow: rgba(0, 0, 0, 0.4);
+  --lilac: #b48be0;
+  --lilac-hover: #cba6ef;
+  --map-land: #3a322a;
+  --map-land-stroke: #1c1815;
 }
 
 :root[data-theme="dark"] .country-card .name,
@@ -188,6 +204,71 @@ main {
 .country-card .name {
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+#map-section {
+  margin-bottom: 2.5rem;
+}
+
+#map-section h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.4rem;
+}
+
+.map-caption {
+  margin: 0 0 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.lilac-sample {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  background: var(--lilac);
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+.world-map {
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: var(--bg-alt);
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.world-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.world-map .empty-state {
+  padding: 2rem 1rem;
+}
+
+/* Higher specificity than the map's own embedded .landxx rule, so our
+   theme-aware base color always wins regardless of DOM/style order. */
+#world-map .landxx {
+  fill: var(--map-land);
+  stroke: var(--map-land-stroke);
+}
+
+.map-highlight {
+  fill: var(--lilac);
+  cursor: pointer;
+  transition: fill 0.15s ease;
+}
+
+.map-highlight:hover,
+.map-highlight:focus-visible {
+  fill: var(--lilac-hover);
+  outline: none;
+}
+
+.map-highlight.map-active {
+  fill: var(--accent);
 }
 
 #country-detail {

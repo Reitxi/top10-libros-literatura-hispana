@@ -1,3 +1,5 @@
+let mapRoot = null;
+
 function flagFor(name) {
   const entry = COUNTRIES.find((c) => c.name === name);
   return entry ? entry.flag : "📖";
@@ -40,6 +42,14 @@ function showCountry(name) {
   document.querySelectorAll(".country-card").forEach((card) => {
     card.classList.toggle("active", card.getAttribute("data-country") === name);
   });
+
+  if (mapRoot) {
+    mapRoot.querySelectorAll(".map-active").forEach((el) => el.classList.remove("map-active"));
+    const country = COUNTRIES.find((c) => c.name === name);
+    if (country) {
+      mapRoot.querySelectorAll("." + country.code).forEach((el) => el.classList.add("map-active"));
+    }
+  }
 
   if (!books) {
     detail.classList.remove("hidden");
@@ -87,9 +97,46 @@ function initThemeToggle() {
   });
 }
 
+async function initMap() {
+  const container = document.getElementById("world-map");
+
+  let svgText;
+  try {
+    const response = await fetch("img/world-map.svg");
+    svgText = await response.text();
+  } catch (err) {
+    container.innerHTML = '<p class="empty-state">No se pudo cargar el mapa.</p>';
+    return;
+  }
+
+  container.innerHTML = svgText;
+  mapRoot = container.querySelector("svg");
+  if (!mapRoot) return;
+
+  COUNTRIES.forEach((country) => {
+    const elements = mapRoot.querySelectorAll("." + country.code);
+    elements.forEach((el, i) => {
+      el.classList.add("map-highlight");
+      el.addEventListener("click", () => showCountry(country.name));
+      if (i === 0) {
+        el.setAttribute("tabindex", "0");
+        el.setAttribute("role", "button");
+        el.setAttribute("aria-label", country.name);
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            showCountry(country.name);
+          }
+        });
+      }
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderGrid();
   initThemeToggle();
+  initMap();
   document.getElementById("search").addEventListener("input", (e) => {
     renderGrid(e.target.value);
   });

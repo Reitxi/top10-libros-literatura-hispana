@@ -12,10 +12,10 @@ Abre `index.html` en tu navegador, o publícalo con GitHub Pages (Settings → P
 ├── index.html          # Página principal
 ├── css/style.css        # Estilos
 ├── js/
-│   ├── countries.js      # Lista de países con su bandera
+│   ├── countries.js      # Lista de países con su bandera y código ISO
 │   ├── data.js           # Los 10 libros por país (título, autor, año, descripción)
-│   └── app.js             # Lógica de la interfaz (grilla, búsqueda, detalle)
-└── img/                  # (reservado para imágenes futuras)
+│   └── app.js             # Lógica de la interfaz (grilla, búsqueda, detalle, mapa, tema)
+└── img/world-map.svg     # Mapa interactivo del mundo (dominio público, ver Créditos)
 ```
 
 ## Países incluidos
@@ -36,3 +36,7 @@ Las listas se basan en el consenso de crítica literaria y académica sobre las 
 - Añadir enlaces a ediciones o textos disponibles libremente.
 - Incluir Guinea Ecuatorial (único país hispanohablante de África).
 - Filtro por época o género literario.
+
+## Créditos
+
+El mapa (`img/world-map.svg`) es una versión adaptada de ["BlankMap-World-Compact.svg"](https://commons.wikimedia.org/wiki/File:BlankMap-World6,_compact.svg), publicado en Wikimedia Commons en el dominio público.
