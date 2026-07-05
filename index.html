@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Literatura Hispanoamericana y Española</title>
+  <meta name="description" content="Los diez libros más importantes de la literatura de cada país hispanohablante." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Literatura Hispanoamericana y Española</h1>
+    <p>Los diez libros más importantes de la historia literaria de cada país de habla hispana. Elige un país para descubrir su canon.</p>
+    <div class="search-bar">
+      <input type="search" id="search" placeholder="Buscar país..." aria-label="Buscar país" />
+    </div>
+  </header>
+
+  <main>
+    <div id="country-grid"></div>
+
+    <section id="country-detail" class="hidden">
+      <div class="detail-heading" id="detail-heading"></div>
+      <ol class="book-list" id="book-list"></ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>Proyecto de código abierto sobre literatura hispana. Las listas reflejan un canon consensuado por crítica y academia; siempre discutible y ampliable — las contribuciones son bienvenidas.</p>
+  </footer>
+
+  <script src="js/countries.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+:root {
+  --bg: #faf6f0;
+  --bg-alt: #ffffff;
+  --text: #2a2320;
+  --text-muted: #6b5f56;
+  --accent: #9a3324;
+  --accent-2: #c08a2e;
+  --border: #e3d9cc;
+  --shadow: rgba(42, 35, 32, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1815;
+    --bg-alt: #262019;
+    --text: #f1e9df;
+    --text-muted: #b8ab9c;
+    --accent: #e0693f;
+    --accent-2: #d9a441;
+    --border: #3a322a;
+    --shadow: rgba(0, 0, 0, 0.4);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+header.site-header {
+  padding: 3rem 1.5rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+header.site-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: 0.01em;
+}
+
+header.site-header p {
+  margin: 0 auto;
+  max-width: 40rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.search-bar {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input {
+  width: min(28rem, 90vw);
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.search-bar input:focus {
+  outline: 2px solid var(--accent-2);
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+#country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.9rem;
+}
+
+.country-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  padding: 1rem 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.country-card:hover,
+.country-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px var(--shadow);
+}
+
+.country-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.country-card .flag {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.country-card .name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+#country-detail {
+  margin-top: 2.5rem;
+}
+
+#country-detail.hidden {
+  display: none;
+}
+
+.detail-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-heading .flag {
+  font-size: 2.2rem;
+}
+
+.detail-heading h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.book-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.book-item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.9rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  padding: 1rem 1.2rem;
+}
+
+.book-item .rank {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.book-item h3 {
+  margin: 0 0 0.15rem;
+  font-size: 1.1rem;
+}
+
+.book-item .meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.book-item p {
+  margin: 0;
+  font-size: 0.96rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+}
