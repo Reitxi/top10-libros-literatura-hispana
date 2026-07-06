@@ -35,6 +35,24 @@
     <div class="search-bar">
       <input type="search" id="search" placeholder="Buscar país..." aria-label="Buscar país" />
     </div>
+    <div class="filters-bar">
+      <select id="genre-filter" aria-label="Filtrar por género literario">
+        <option value="">Todos los géneros</option>
+        <option value="novela">Novela</option>
+        <option value="poesía">Poesía</option>
+        <option value="ensayo">Ensayo</option>
+        <option value="teatro">Teatro</option>
+        <option value="cuento">Cuento</option>
+      </select>
+      <select id="era-filter" aria-label="Filtrar por época">
+        <option value="">Todas las épocas</option>
+        <option value="pre1800">Antes de 1800</option>
+        <option value="1800-1899">1800 - 1899</option>
+        <option value="1900-1949">1900 - 1949</option>
+        <option value="1950-1999">1950 - 1999</option>
+        <option value="2000-">2000 - actualidad</option>
+      </select>
+    </div>
   </header>
 
   <main>
@@ -51,6 +69,11 @@
     <section id="country-detail" class="hidden">
       <div class="detail-heading" id="detail-heading"></div>
       <ol class="book-list" id="book-list"></ol>
+    </section>
+
+    <section id="filtered-results" class="hidden" aria-labelledby="filtered-heading">
+      <h2 id="filtered-heading"></h2>
+      <ol class="book-list" id="filtered-book-list"></ol>
     </section>
   </main>
 

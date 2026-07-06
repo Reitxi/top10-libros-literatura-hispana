@@ -18,5 +18,6 @@ const COUNTRIES = [
   { name: "República Dominicana", flag: "🇩🇴", code: "do" },
   { name: "Uruguay", flag: "🇺🇾", code: "uy" },
   { name: "Venezuela", flag: "🇻🇪", code: "ve" },
-  { name: "España", flag: "🇪🇸", code: "es" }
+  { name: "España", flag: "🇪🇸", code: "es" },
+  { name: "Guinea Ecuatorial", flag: "🇬🇶", code: "gq" }
 ];
